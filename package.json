@@ -1,0 +1,23 @@
+{
+  "name": "ai-shorts",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace @ai-shorts/api",
+    "dev:worker": "npm run dev --workspace @ai-shorts/worker",
+    "dev:mobile": "npm run start --workspace @ai-shorts/mobile",
+    "dev:n8n": "npx --yes n8n start",
+    "db:migrate": "npx supabase db push",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
