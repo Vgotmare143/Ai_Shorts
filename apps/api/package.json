@@ -1,10 +1,13 @@
 {
   "name": "@ai-shorts/api",
   "version": "0.1.0",
+
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/youtube.test.ts"
   }
 }

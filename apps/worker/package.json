@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/video/ffmpeg.test.ts src/transcription/whisper.test.ts src/ai/ollama.test.ts"
   }
 }
