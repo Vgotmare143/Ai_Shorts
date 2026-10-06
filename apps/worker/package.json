@@ -7,5 +7,8 @@
     "dev": "tsx watch src/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test src/video/ffmpeg.test.ts src/transcription/whisper.test.ts src/ai/ollama.test.ts"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
   }
 }
