@@ -23,5 +23,6 @@ export const config = z
     SUPABASE_URL: text(""),
     SUPABASE_SERVICE_ROLE_KEY: text(""),
     STORAGE_BUCKET: text("shorts"),
+    DEFAULT_LOGO_PATH: text(""),
   })
   .parse(process.env);
