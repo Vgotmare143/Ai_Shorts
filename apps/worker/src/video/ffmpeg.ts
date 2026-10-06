@@ -1,3 +1,5 @@
+import { runProcess, type ProcessOptions } from "../process.js";
+
 import { runProcess } from "../process.js";
 
 export interface ClipOptions {
@@ -44,9 +46,9 @@ export class FfmpegError extends Error {
   }
 }
 
-export async function runFfmpeg(args: string[]): Promise<void> {
+export async function runFfmpeg(args: string[], options: ProcessOptions = {}): Promise<void> {
   try {
-    const result = await runProcess("ffmpeg", args);
+    const result = await runProcess("ffmpeg", args, options);
     if (result.code !== 0) throw new FfmpegError(result.stderr);
   } catch (error) {
     if (error instanceof FfmpegError) throw error;
