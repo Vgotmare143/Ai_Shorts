@@ -1,6 +1,5 @@
 import { runProcess, type ProcessOptions } from "../process.js";
 
-import { runProcess } from "../process.js";
 
 export interface ClipOptions {
   inputPath: string;
