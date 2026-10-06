@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test src/video/ffmpeg.test.ts src/video/render.test.ts src/transcription/whisper.test.ts src/ai/ollama.test.ts src/clips/validate.test.ts src/clips/heuristic.test.ts src/clips/selection.test.ts src/captions/ass.test.ts"
+    "test": "tsx --test src/video/ffmpeg.test.ts src/video/render.test.ts src/transcription/whisper.test.ts src/ai/ollama.test.ts src/clips/validate.test.ts src/clips/heuristic.test.ts src/clips/selection.test.ts src/captions/ass.test.ts src/storage/paths.test.ts"
   }
 }

@@ -20,5 +20,8 @@ export const config = z
     OLLAMA_BASE_URL: text("http://localhost:11434"),
     WHISPER_MODEL: text("small"),
     WHISPER_PYTHON: text(".venv/Scripts/python.exe"),
+    SUPABASE_URL: text(""),
+    SUPABASE_SERVICE_ROLE_KEY: text(""),
+    STORAGE_BUCKET: text("shorts"),
   })
   .parse(process.env);
