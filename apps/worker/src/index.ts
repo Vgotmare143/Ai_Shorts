@@ -19,8 +19,12 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  const requeued = await requeueStaleJobs();
-  if (requeued > 0) console.log(`Re-queued ${requeued} job(s) left unfinished by an earlier run.`);
+  try {
+    const requeued = await requeueStaleJobs();
+    if (requeued > 0) console.log(`Re-queued ${requeued} job(s) left unfinished by an earlier run.`);
+  } catch (error) {
+    console.error("Could not check for unfinished jobs (will keep going):", error instanceof Error ? error.message : error);
+  }
   console.log("AI Shorts worker started. Waiting for jobs...");
 
   while (!stopping) {
