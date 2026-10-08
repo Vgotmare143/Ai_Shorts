@@ -7,6 +7,7 @@ import { clipRoutes } from "./routes/clips.js";
 import { healthRoutes } from "./routes/health.js";
 import { jobRoutes } from "./routes/jobs.js";
 import { projectRoutes } from "./routes/projects.js";
+import { internalRoutes } from "./routes/internal.js";
 
 export async function buildServer() {
   const app = Fastify({
@@ -41,5 +42,7 @@ export async function buildServer() {
   await app.register(projectRoutes);
   await app.register(jobRoutes);
   await app.register(clipRoutes);
+  await app.register(internalRoutes);
+  
   return app;
 }

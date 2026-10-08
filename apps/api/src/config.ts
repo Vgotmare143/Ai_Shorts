@@ -19,6 +19,8 @@ const envSchema = z.object({
   STORAGE_BUCKET: text("shorts"),
   OLLAMA_BASE_URL: text("http://localhost:11434"),
   API_PORT: text("4000").transform(Number),
+  N8N_BASE_URL: text(""),
+  N8N_WEBHOOK_SECRET: text(""),
 });
 
 const parsed = envSchema.safeParse(process.env);

@@ -4,6 +4,7 @@ import { getOwnedJob } from "../db.js";
 import { AppError } from "../errors.js";
 import { supabaseAdmin } from "../supabase.js";
 import { idParamsSchema } from "./projects.js";
+import { notifyN8n } from "../n8n.js";
 
 const FINISHED = ["COMPLETED", "FAILED", "CANCELLED"];
 
@@ -36,6 +37,7 @@ export async function jobRoutes(app: FastifyInstance) {
       .single();
     if (error) throw new AppError(500, "DATABASE_ERROR", "Could not retry the job.");
     await supabaseAdmin.from("projects").update({ status: "queued" }).eq("id", job.project_id);
+    void notifyN8n({ jobId: id, projectId: job.project_id }, request.log);
     return { job: data };
   });
 

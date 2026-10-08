@@ -6,6 +6,7 @@ import { AppError } from "../errors.js";
 import { deleteProjectFiles } from "../storage.js";
 import { supabaseAdmin } from "../supabase.js";
 import { parseYouTubeUrl } from "../youtube.js";
+import { notifyN8n } from "../n8n.js";
 
 const createProjectSchema = z.object({
   sourceUrl: z.string().min(1),
@@ -104,6 +105,7 @@ export async function projectRoutes(app: FastifyInstance) {
     if (error) throw new AppError(500, "DATABASE_ERROR", "Could not start processing.");
 
     await supabaseAdmin.from("projects").update({ status: "queued" }).eq("id", id);
+    void notifyN8n({ jobId: job.id, projectId: id }, request.log);
     return reply.code(201).send({ job });
   });
 }

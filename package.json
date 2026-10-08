@@ -10,7 +10,8 @@
     "dev:api": "npm run dev --workspace @ai-shorts/api",
     "dev:worker": "npm run dev --workspace @ai-shorts/worker",
     "dev:mobile": "npm run start --workspace @ai-shorts/mobile",
-    "dev:n8n": "npx --yes n8n start",
+    "dev:n8n": "node scripts/start-n8n.mjs",
+    "n8n:build": "node scripts/build-n8n-workflow.mjs",
     "db:migrate": "npx supabase db push",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
